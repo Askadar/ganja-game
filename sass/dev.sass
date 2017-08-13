@@ -1,0 +1,132 @@
+$green: #2ecc71
+$teal: #1abc9c
+$blue: #3498db
+$purple: #9b59b6
+$yellow: #f1c40f
+$orange: #e67e22
+$red: #e74c3c
+
+$clouds: #ecf0f1
+$silver: #bdc3c7
+$concrete: #95a5a6
+$asbestos: #7f8c8d
+$asphalt: #34495e
+$midnight: #2c3e50
+
+$primary: $blue
+$backgroundWhite: transparentize($clouds, 0.35)
+
+=animate($time: "0.15s")
+  transition: all unquote($time) ease-in-out
+
+=hoverBorder($color: $primary)
+  +animate
+  cursor: pointer
+  &:hover
+    box-shadow: 0px 0px 0px 3px $color
+
+html, body
+  height: 100%
+  overflow: hidden
+  display: flex
+  flex-direction: column
+
+header
+  .level
+    background: $midnight
+    color: $clouds
+    padding: 1rem 1rem
+    .avatar
+      border-radius: 100%
+      overflow: hidden
+      +hoverBorder
+
+content
+  background: $asbestos
+  flex-grow: 1
+  padding: 2rem
+  display: flex
+  flex-direction: column
+  .blog-wrapper
+    flex-wrap: wrap
+    flex-grow: 1
+    text-align: center
+    .blog-card
+      display: inline-flex
+      overflow: hidden
+      margin: 1rem
+      justify-content: center
+      align-items: flex-end
+      position: relative
+      +hoverBorder($midnight)
+      .description
+        display: flex
+        position: absolute
+        width: 100%
+        height: 33%
+        @extend .has-text-centered
+        background: white
+        color: black
+        overflow: hidden
+        .img-wrapper
+          position: relative
+          display: flex
+          height: 100%
+          width: 100%
+        .image
+          filter: opacity(0.6) blur(2px)
+          transform: scale(1.06)
+          position: absolute
+          bottom: 0
+        .name
+          position: absolute
+          z-index: 999
+  .filter
+    .filter-search
+      flex-grow: 1
+      display: flex
+      margin-right: 0.75rem
+      .field
+        flex-grow: 1
+
+/* helpers
+.has-text-centered
+  justify-content: center
+  align-items: center
+  text-align: center
+  *
+    display: inline-block
+
+a
+  color: inherit
+  &:hover
+    background: inherit
+    color: inherit
+
+.is-large
+  padding: initial 1.5rem
+  font-size: 1.5rem
+
+a.button
+  &.is-primary.is-inverted.is-outlined
+    border-color: $midnight
+    color: $midnight
+    &:hover
+      color: $clouds
+      background: $blue
+      border-color: transparent
+  &.is-success
+    background: $midnight
+    &:hover
+      background: $blue
+
+input.input
+  background: transparent
+  color: $midnight
+  border: none
+  border-bottom: 1px solid $midnight
+  box-shadow: none
+  &:hover
+    border-color: $blue
+  &:active
+    border-color: $blue

@@ -1,0 +1,60 @@
+@import './variables'
+@import './dev'
+
+@function hover($color)
+	@return lighten($color, 25%)
+
+$transition: all 0.15s ease-in-out
+
+
+div[data-reactroot]
+	height: 100%
+	overflow: hidden
+	display: flex
+	flex-direction: column
+
+html, body, #app
+	height: 100%
+
+header
+	.level
+		background: $midnight
+		color: $clouds
+
+		.level-item
+			padding: 1rem
+
+content
+	background: $asbestos
+	flex-grow: 1
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+
+	.card
+		width: 20rem
+
+		.has-text-centered
+			text-align: center
+
+// helpers
+.has-text-centered
+	justify-content: center
+	align-items: center
+
+	*
+		display: inline-block
+
+a
+	color: inherit
+
+	&:hover
+		background: inherit
+		color: inherit
+
+.is-large
+	padding: 18rem 1.5rem
+	font-size: 1.5rem
+
+@import "bulma"
